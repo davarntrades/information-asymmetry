@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this research project, please cite it as below."
+title: "Information Asymmetry: Higher-Level Psychological Descriptions as Compressions of Deeper Dynamical Representations"
+authors:
+  - family-names: "Morrison"
+    given-names: "Davarn"
+version: "0.1.0"
+date-released: "2026-07-09"
+url: "https://github.com/YOUR-USERNAME/information-asymmetry"
+preferred-citation:
+  type: article
+  title: "Information Asymmetry: Higher-Level Psychological Descriptions as Compressions of Deeper Dynamical Representations"
+  authors:
+    - family-names: "Morrison"
+      given-names: "Davarn"
+  year: 2026
