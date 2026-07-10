@@ -1,9 +1,11 @@
 # Papers
 
-Place the formal academic paper here when available:
+## Information Asymmetry — Version 2.1
 
-```text
-papers/Information_Asymmetry_Preprint.pdf
-```
+The publication-ready preprint is available here:
 
-The PDF was not available in the local workspace when this repository structure was created.
+- [Download the PDF](./Information_Asymmetry_Preprint.pdf)
+
+The paper presents the scientific hypothesis, the proposed falsifiable experiment, and Runtime Governance as a separate engineering implementation inspired by the framework—not as proof of the hypothesis.
+
+**Current build:** Version 2.1 · 22 pages · July 2026
