@@ -1,11 +1,13 @@
 # Papers
 
-## Information Asymmetry — Version 2.1
+## Information Asymmetry — Version 2.2
 
-The publication-ready preprint is available here:
+The current publication-ready preprint is available here:
 
 - [Download the PDF](./Information_Asymmetry_Preprint.pdf)
 
-The paper presents the scientific hypothesis, the proposed falsifiable experiment, and Runtime Governance as a separate engineering implementation inspired by the framework—not as proof of the hypothesis.
+Version 2.2 introduces the Morrison Asymmetry Profile, psychological fibres, intervention-sensitive fibre diameter, a rate-matched nontriviality criterion, a fully specified synthetic positive control, and an executable controlled behavioural experiment.
 
-**Current build:** Version 2.1 · 22 pages · July 2026
+The paper preserves the central scientific hypothesis unchanged and keeps the proposed experiment distinct from Runtime Governance, which remains an engineering implementation inspired by the framework—not proof of the hypothesis.
+
+**Current build:** Version 2.2 · 27 pages · 11 figures · 34 references · July 2026
