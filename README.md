@@ -250,7 +250,7 @@ information-asymmetry/
 ```
 
 > [!NOTE]
-> The current publication-ready preprint is available at [`papers/Information_Asymmetry_Preprint.pdf`](papers/Information_Asymmetry_Preprint.pdf) (Version 2.1, 22 pages).
+> The current publication-ready preprint is available at [`papers/Information_Asymmetry_Preprint.pdf`](papers/Information_Asymmetry_Preprint.pdf) (Version 2.2, 27 pages).
 
 ## Citation
 
