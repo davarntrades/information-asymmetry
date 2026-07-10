@@ -249,8 +249,8 @@ information-asymmetry/
 │     └── README.md
 ```
 
-> [!IMPORTANT]
-> The formal PDF was not available in the local workspace during repository creation. Place it at `papers/Information_Asymmetry_Preprint.pdf` when available.
+> [!NOTE]
+> The current publication-ready preprint is available at [`papers/Information_Asymmetry_Preprint.pdf`](papers/Information_Asymmetry_Preprint.pdf) (Version 2.1, 22 pages).
 
 ## Citation
 
