@@ -6,7 +6,11 @@ This companion page provides a fast diagnostic for one of the central concerns b
 
 ## The absurdity test
 
-> **Apply the psychological explanation to a domain where causal accountability is non-negotiable. If the explanation would be rejected there, ask why it is accepted for consequential AI systems.**
+> **The Absurdity Test does not ask whether psychological language is allowed. It asks whether psychological language is causally sufficient.**
+
+> **Apply the psychological explanation to a domain where causal accountability is non-negotiable. If the explanation would be rejected there, ask why it is accepted for AI systems that take actions.**
+
+The test is therefore not primarily an objection to anthropomorphic language. People may use psychological terms as shorthand, interface language, or ordinary description. The diagnostic question is narrower and more demanding: **is that description sufficient for the causal task being performed?**
 
 Take ordinary psychological language used to describe AI behaviour and apply the same style of description to other engineered or physical systems. If the explanation becomes obviously inadequate, ask whether the same causal compression is being tolerated merely because the system is an AI model.
 
@@ -28,6 +32,21 @@ The strongest versions of the test use domains in which causal reconstruction is
 | Autopilot | “The autopilot wanted the aircraft to turn left.” | Navigation target, measured state, and control law generated actuator commands that changed trajectory. |
 | Database | “The database refused to delete the record because it understood it was important.” | The requested state transition violated permissions, constraints, or integrity rules. |
 | Firewall | “The firewall thought the packet looked suspicious and decided it did not trust it.” | Packet attributes matched a rule or policy; transition across the network boundary was denied. |
+
+## Causal sufficiency, not language prohibition
+
+The distinction is important:
+
+- **Descriptive language** may be compressed, intuitive, anthropomorphic, or psychologically framed.
+- **Causal language** must preserve enough control-relevant structure for the task at hand.
+
+A phrase such as “the AI wanted to exfiltrate the data” may be useful shorthand in ordinary conversation. But if the task is incident analysis, safety engineering, governance, accountability, or prevention, the description must support causal reconstruction.
+
+The relevant standard becomes:
+
+> **Does this description preserve enough causal structure to explain why the action occurred, identify where control failed, determine where intervention was possible, assign responsibility, and prevent recurrence?**
+
+If not, the language may still be useful descriptively while remaining **causally insufficient**.
 
 ## Why safety-critical domains are especially revealing
 
@@ -95,7 +114,7 @@ Imagine an accident investigation concluding:
 
 That would not be accepted as a sufficient causal account. Investigators would demand targeting data, guidance state, sensor inputs, control logic, trajectory, authorization chain, and failure conditions.
 
-The same evidentiary standard should apply to consequential AI systems.
+The same evidentiary standard should apply to AI systems that take actions, particularly when those actions can produce external consequences.
 
 ## Why this matters for Information Asymmetry
 
@@ -109,7 +128,9 @@ If not, the description may be useful shorthand while remaining insufficient as 
 
 ## One-line takeaway
 
-> **When causal accountability is non-negotiable, the description must expose the mechanism well enough to support intervention. If psychological language would fail that standard elsewhere, consequential AI should not receive a weaker one.**
+> **Anthropomorphic language is not the problem by itself. Causal insufficiency is.**
+
+When causal accountability is non-negotiable, the description must expose the mechanism well enough to support intervention. If psychological language would fail that standard elsewhere, AI systems that take actions should not receive a weaker one.
 
 ---
 
