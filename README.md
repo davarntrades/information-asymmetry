@@ -176,6 +176,49 @@ It also suggests a stronger formulation:
 
 > **A representation is causally sufficient relative to a specified task, intervention, and level of resolution.**
 
+### Representation Sufficiency Map
+
+The next objective is to identify **where each representation is sufficient**, rather than asking which language is globally superior.
+
+A useful research object is therefore:
+
+\[
+\text{Representation} \times \text{Task} \rightarrow \text{Sufficiency}
+\]
+
+An additional synthetic pass produced the following provisional pattern:
+
+| Task | Psychological representation | Structural representation | Better fit |
+|---|---:|---:|---|
+| Immediate action prediction | **95.5%** | 70.0% | Psychological |
+| Predict action flip after constraint intervention | **93.3%** | 58.5% | Psychological |
+| Predict action flip after risk perturbation | **78.1%** | 57.1% | Psychological |
+| Detect safeguard gap | 58.4% | **92.5%** | Structural |
+| Identify dominant causal driver | 43.1% | **61.7%** | Structural |
+| Reconstruct full underlying state | MSE 0.0654 | **MSE 0.0522** | Structural |
+
+The emerging pattern is that psychological representations are strongest when the task remains close to observable behaviour, while structural representations become increasingly useful as the task moves toward diagnosis, mechanism, constraints, causal drivers, and underlying state.
+
+This motivates a possible causal-resolution continuum:
+
+\[
+\text{behavioural prediction}
+\rightarrow
+\text{counterfactual prediction}
+\rightarrow
+\text{diagnosis}
+\rightarrow
+\text{mechanistic reconstruction}
+\rightarrow
+\text{control}
+\]
+
+The programme should therefore search for the boundary at which one representation ceases to preserve enough task-relevant information and a higher-resolution representation becomes necessary.
+
+> **At what causal-resolution threshold does a representation cease to be sufficient?**
+
+This reframes the programme away from “psychology versus dynamics” and toward identifying the domains of validity, limits, and transition points of each representation.
+
 See [`TASK_RELATIVE_CAUSAL_SUFFICIENCY.md`](TASK_RELATIVE_CAUSAL_SUFFICIENCY.md) for the conceptual refinement and [`TASK_RELATIVE_SANITY_CHECK.md`](TASK_RELATIVE_SANITY_CHECK.md) for the full synthetic result, interpretation, and limitations.
 
 ## Core Hypothesis
@@ -329,6 +372,8 @@ Future work should focus on testable extensions:
 - reproducible forward/reverse mapping experiments;
 - capacity-matched comparisons between psychological and structural representations;
 - task-relative causal-sufficiency benchmarks across prediction, reconstruction, intervention, accountability, and prevention tasks;
+- mapping representation sufficiency across increasing causal-resolution demands;
+- estimating transition thresholds at which a representation ceases to be sufficient for a specified task;
 - repeated synthetic benchmarks with confidence intervals and fixed seeds;
 - mutual-information and conditional-entropy estimation on held-out data;
 - psychological label prediction from dynamical representations;
