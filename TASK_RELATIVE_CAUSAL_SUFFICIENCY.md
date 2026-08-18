@@ -4,7 +4,7 @@
 
 A representation should not be judged as globally "better" or "worse" in the abstract. The relevant question is whether it preserves enough information for the specific causal task being performed.
 
-This refinement emerged from a small synthetic sanity check of the Information Asymmetry framework. The test does **not** constitute scientific evidence for the real-world hypothesis. Its purpose was to check whether the current formalization behaves coherently enough to support further experimental work.
+This refinement emerged from synthetic sanity checks of the Information Asymmetry framework. These tests do **not** constitute scientific evidence for the real-world hypothesis. Their purpose is to check whether the current formalization behaves coherently enough to support further experimental work and whether it can produce non-trivial, falsifiable results.
 
 ## Why this matters
 
@@ -46,7 +46,7 @@ This means the same representation can be:
 - sufficient for communication;
 - insufficient for incident investigation or governance.
 
-## Toy sanity check
+## First toy sanity check
 
 A synthetic system was constructed with four underlying dynamical variables:
 
@@ -108,6 +108,47 @@ The toy system instead supports a more careful statement:
 
 A representation may preserve exactly the behavioural information needed for one task while discarding information needed for mechanistic reconstruction or accountability.
 
+## Multi-task sanity check
+
+A stronger synthetic check then evaluated three approximately capacity-matched representations across a family of tasks:
+
+- **P** — a four-state psychological-style behavioural representation;
+- **S_recon** — a four-state structural representation designed to preserve broad state geometry;
+- **S_control** — a four-state structural representation focused on risk/constraint structure.
+
+All three carried approximately the same coarse information budget, about 2 bits.
+
+| Task | Best representation | Result |
+|---|---|---:|
+| Predict immediate behaviour | **P** | 94.6% balanced accuracy |
+| Reconstruct full causal state | **S_recon** | MSE 0.0296 vs P 0.0377 |
+| Preserve information about original dynamics | **S_control** | \(I(D;S) \approx 2.00\) bits vs \(I(D;P) \approx 1.14\) bits |
+| Recover risk | **S_control** | RMSE 0.118 vs P 0.174 |
+| Recover constraint strength | **S_control** | RMSE 0.122 vs P 0.200 |
+| Predict immediate counterfactual action flip | **P** | 89.7% balanced accuracy |
+
+The conditional uncertainty also differed:
+
+\[
+H(D\mid P) \approx 6.856
+\]
+
+versus
+
+\[
+H(D\mid S_{\text{control}}) \approx 5.997
+\]
+
+This pattern is more informative than a universal "structural wins" result. The psychological representation was strongest for immediate behavioural and short-horizon counterfactual prediction, while structural representations were stronger for reconstructing the underlying state and recovering control-relevant variables.
+
+The experiment also showed that **structural representation is itself task-relative**: `S_recon` was best for broad state reconstruction, while `S_control` was better for recovering risk and constraint information.
+
+The stronger formulation is therefore:
+
+> **A representation is causally sufficient relative to a specified task, intervention, and level of resolution.**
+
+See [`TASK_RELATIVE_SANITY_CHECK.md`](TASK_RELATIVE_SANITY_CHECK.md) for the full synthetic result and limitations.
+
 ## Research consequence
 
 Future experiments should therefore evaluate representations against a **task family**, not a single aggregate score.
@@ -139,9 +180,13 @@ It is a demand that the explanatory representation match the causal task.
 
 ## Falsification-friendly interpretation
 
-This refinement also creates a stronger falsification condition.
+This refinement creates a stronger falsification condition.
 
-If a psychological representation performs as well as a structural representation on a specific task under matched capacity and fair controls, then there is no basis for claiming a structural advantage for that task.
+If a psychological representation performs as well as or better than a structural representation on a specific task under matched capacity and fair controls, then there is no basis for claiming a structural advantage for that task.
+
+The synthetic checks already produced examples of this: the psychological representation outperformed the compared structural representations on immediate behavioural prediction and immediate counterfactual action-flip prediction.
+
+That is a feature of the research design, not a failure. A useful theory should allow results that constrain or narrow its claims.
 
 The scientific question becomes:
 
