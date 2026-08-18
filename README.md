@@ -13,6 +13,7 @@
 | Section | Purpose |
 |---|---|
 | [`ABSURDITY_TEST.md`](ABSURDITY_TEST.md) | Practical diagnostic for testing whether psychological language is causally sufficient |
+| [`TASK_RELATIVE_CAUSAL_SUFFICIENCY.md`](TASK_RELATIVE_CAUSAL_SUFFICIENCY.md) | Refinement showing that causal sufficiency depends on the task the representation must support |
 | [`FUNDING_AND_COLLABORATION.md`](FUNDING_AND_COLLABORATION.md) | Research funding, collaboration, institutional support, and empirical validation pathway |
 | `papers/` | Formal academic preprint |
 | `diagrams/` | Mermaid diagrams describing the research architecture |
@@ -117,6 +118,28 @@ The same standard motivates questions such as:
 - Which actor or component could have altered the reachable set before the consequence occurred?
 
 See [`ABSURDITY_TEST.md`](ABSURDITY_TEST.md) for the full diagnostic and worked examples.
+
+## Task-Relative Causal Sufficiency
+
+A further refinement is:
+
+> **Causal sufficiency is task-relative.**
+
+A representation should not be judged as globally better or worse in isolation. It should be judged by whether it preserves enough information for the causal task being performed.
+
+A psychological description may be sufficient for behavioural prediction while remaining insufficient for state reconstruction, trajectory reconstruction, intervention design, constraint diagnosis, responsibility localization, or recurrence prevention.
+
+The same representation can therefore be useful for one task and causally inadequate for another.
+
+A working formulation is:
+
+> **A representation is causally sufficient for a task only if it preserves enough task-relevant information to support the required inference, reconstruction, intervention, or accountability judgement.**
+
+This makes the research question more precise:
+
+> **For which tasks, under which conditions, and at what representation capacity does information asymmetry emerge?**
+
+See [`TASK_RELATIVE_CAUSAL_SUFFICIENCY.md`](TASK_RELATIVE_CAUSAL_SUFFICIENCY.md) for the full refinement and the synthetic sanity-check interpretation.
 
 ## Core Hypothesis
 
@@ -268,6 +291,7 @@ Future work should focus on testable extensions:
 
 - reproducible forward/reverse mapping experiments;
 - capacity-matched comparisons between psychological and structural representations;
+- task-relative causal-sufficiency benchmarks across prediction, reconstruction, intervention, accountability, and prevention tasks;
 - mutual-information and conditional-entropy estimation on held-out data;
 - psychological label prediction from dynamical representations;
 - reverse reconstruction limits;
@@ -284,6 +308,7 @@ Future work should focus on testable extensions:
 information-asymmetry/
 │── README.md
 │── ABSURDITY_TEST.md
+│── TASK_RELATIVE_CAUSAL_SUFFICIENCY.md
 │── FUNDING_AND_COLLABORATION.md
 │── LICENSE
 │── CITATION.cff
