@@ -9,6 +9,7 @@
 
 | Section | Purpose |
 |---|---|
+| [`ABSURDITY_TEST.md`](ABSURDITY_TEST.md) | Practical diagnostic for testing whether psychological language is causally sufficient |
 | `papers/` | Formal academic preprint |
 | `diagrams/` | Mermaid diagrams describing the research architecture |
 | `mathematics/` | Mathematical notes supporting the hypothesis |
@@ -77,6 +78,41 @@ Information Asymmetry is an open research programme investigating whether high-l
 The project treats psychological terms as potentially useful summaries rather than complete explanations. It asks whether richer structural descriptions — state spaces, trajectories, feedback, constraints, reachability, and transition geometry — can support prediction, explanation, and early detection across complex systems.
 
 The accompanying PDF is the formal academic paper. This repository turns the paper into a living research environment with diagrams, mathematical notes, experiment templates, engineering notes, and future research pathways.
+
+## Causal Sufficiency and the Absurdity Test
+
+This project is **not primarily an objection to anthropomorphic language**. Psychological language may be useful as shorthand, interface language, or a coarse-grained behavioural description.
+
+The more important question is:
+
+> **Is the language causally sufficient for the task at hand?**
+
+A description becomes causally insufficient when it omits variables needed to explain why an event occurred, identify where control failed, reconstruct an incident, intervene on the system, assign responsibility, or prevent recurrence.
+
+This distinction is captured by the **Psychological-Language Absurdity Test**:
+
+> **The Absurdity Test does not ask whether psychological language is allowed. It asks whether psychological language is causally sufficient.**
+
+The test applies a psychological explanation to a domain where causal accountability is non-negotiable. If that explanation would be rejected as insufficient for a guided missile, aircraft-control system, nuclear protection system, medical device, railway interlocking system, or other safety-critical mechanism, the same question should be asked when an AI system takes actions with real consequences.
+
+A practical rule is:
+
+> **Apply the psychological explanation to a domain where causal accountability is non-negotiable. If the explanation would be rejected there, ask why it is accepted for AI systems that take actions.**
+
+For example, after a targeting failure, “the missile wanted to hit the building” does not identify the targeting data, sensor state, guidance logic, control law, authorization chain, reachable trajectories, or failure conditions. The sentence may describe the outcome in familiar language, but it is not a sufficient causal reconstruction.
+
+The same standard motivates questions such as:
+
+- What state was the system in?
+- What inputs changed that state?
+- What capabilities and actions were available?
+- What constraints were active or absent?
+- Which states were reachable?
+- What transition actually occurred?
+- Where could the trajectory have been intercepted?
+- Which actor or component could have altered the reachable set before the consequence occurred?
+
+See [`ABSURDITY_TEST.md`](ABSURDITY_TEST.md) for the full diagnostic and worked examples.
 
 ## Core Hypothesis
 
@@ -192,6 +228,7 @@ Future work should focus on testable extensions:
 ```text
 information-asymmetry/
 │── README.md
+│── ABSURDITY_TEST.md
 │── LICENSE
 │── CITATION.cff
 │── CONTRIBUTING.md
