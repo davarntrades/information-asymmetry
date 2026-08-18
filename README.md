@@ -14,6 +14,7 @@
 |---|---|
 | [`ABSURDITY_TEST.md`](ABSURDITY_TEST.md) | Practical diagnostic for testing whether psychological language is causally sufficient |
 | [`TASK_RELATIVE_CAUSAL_SUFFICIENCY.md`](TASK_RELATIVE_CAUSAL_SUFFICIENCY.md) | Refinement showing that causal sufficiency depends on the task the representation must support |
+| [`TASK_RELATIVE_SANITY_CHECK.md`](TASK_RELATIVE_SANITY_CHECK.md) | Multi-task synthetic sanity check comparing capacity-matched psychological and structural representations |
 | [`FUNDING_AND_COLLABORATION.md`](FUNDING_AND_COLLABORATION.md) | Research funding, collaboration, institutional support, and empirical validation pathway |
 | `papers/` | Formal academic preprint |
 | `diagrams/` | Mermaid diagrams describing the research architecture |
@@ -135,11 +136,40 @@ A working formulation is:
 
 > **A representation is causally sufficient for a task only if it preserves enough task-relevant information to support the required inference, reconstruction, intervention, or accountability judgement.**
 
-This makes the research question more precise:
+A multi-task synthetic sanity check produced a deliberately non-uniform result under approximately matched representation capacity:
+
+| Task | Best representation | Result |
+|---|---|---:|
+| Predict immediate behaviour | **Psychological P** | 94.6% balanced accuracy |
+| Reconstruct full causal state | **Structural S_recon** | MSE 0.0296 vs P 0.0377 |
+| Preserve information about original dynamics | **Structural S_control** | \(I(D;S) \approx 2.00\) bits vs \(I(D;P) \approx 1.14\) bits |
+| Recover risk | **Structural S_control** | RMSE 0.118 vs P 0.174 |
+| Recover constraint strength | **Structural S_control** | RMSE 0.122 vs P 0.200 |
+| Predict immediate counterfactual action flip | **Psychological P** | 89.7% balanced accuracy |
+
+The same check found:
+
+\[
+H(D\mid P) \approx 6.856
+\]
+
+versus:
+
+\[
+H(D\mid S_{\text{control}}) \approx 5.997
+\]
+
+This is not evidence for the real-world Information Asymmetry hypothesis. It is a synthetic proof-of-concept showing that the current framework can generate falsifiable, task-dependent outcomes rather than forcing structural representations to win universally.
+
+The result sharpens the research question:
 
 > **For which tasks, under which conditions, and at what representation capacity does information asymmetry emerge?**
 
-See [`TASK_RELATIVE_CAUSAL_SUFFICIENCY.md`](TASK_RELATIVE_CAUSAL_SUFFICIENCY.md) for the full refinement and the synthetic sanity-check interpretation.
+It also suggests a stronger formulation:
+
+> **A representation is causally sufficient relative to a specified task, intervention, and level of resolution.**
+
+See [`TASK_RELATIVE_CAUSAL_SUFFICIENCY.md`](TASK_RELATIVE_CAUSAL_SUFFICIENCY.md) for the conceptual refinement and [`TASK_RELATIVE_SANITY_CHECK.md`](TASK_RELATIVE_SANITY_CHECK.md) for the full synthetic result, interpretation, and limitations.
 
 ## Core Hypothesis
 
@@ -292,11 +322,13 @@ Future work should focus on testable extensions:
 - reproducible forward/reverse mapping experiments;
 - capacity-matched comparisons between psychological and structural representations;
 - task-relative causal-sufficiency benchmarks across prediction, reconstruction, intervention, accountability, and prevention tasks;
+- repeated synthetic benchmarks with confidence intervals and fixed seeds;
 - mutual-information and conditional-entropy estimation on held-out data;
 - psychological label prediction from dynamical representations;
 - reverse reconstruction limits;
 - retained and lost information metrics;
 - intervention-sensitive and control-relevant reconstruction tests;
+- real or controlled AI-agent trajectory tests;
 - biological regulation, adaptation, and recovery;
 - healthcare-relevant modelling only where evidence and appropriate validation exist;
 - autonomous systems, cybersecurity, finance, ecosystems, climate, and infrastructure;
@@ -309,6 +341,7 @@ information-asymmetry/
 │── README.md
 │── ABSURDITY_TEST.md
 │── TASK_RELATIVE_CAUSAL_SUFFICIENCY.md
+│── TASK_RELATIVE_SANITY_CHECK.md
 │── FUNDING_AND_COLLABORATION.md
 │── LICENSE
 │── CITATION.cff
