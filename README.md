@@ -5,11 +5,15 @@
 > [!NOTE]
 > This repository is an early-stage research programme. Runtime Governance is presented as an engineering implementation inspired by the structural framework, not as proof of the scientific hypothesis.
 
+> [!IMPORTANT]
+> **Seeking research collaborators, institutional partners, and funding to empirically validate and extend this programme.** See [`FUNDING_AND_COLLABORATION.md`](FUNDING_AND_COLLABORATION.md).
+
 ## Repository Navigation
 
 | Section | Purpose |
 |---|---|
 | [`ABSURDITY_TEST.md`](ABSURDITY_TEST.md) | Practical diagnostic for testing whether psychological language is causally sufficient |
+| [`FUNDING_AND_COLLABORATION.md`](FUNDING_AND_COLLABORATION.md) | Research funding, collaboration, institutional support, and empirical validation pathway |
 | `papers/` | Formal academic preprint |
 | `diagrams/` | Mermaid diagrams describing the research architecture |
 | `mathematics/` | Mathematical notes supporting the hypothesis |
@@ -211,6 +215,8 @@ This repository is organised as a research programme rather than a static paper 
 | Future extensions | `future-research/` | Identify domain extensions without overstating current evidence. |
 | Literature | `references/` | Collect references without inventing unsupported citations. |
 
+The programme is currently seeking research collaborators, institutional partners, methodological critique, and funding for empirical validation. See [`FUNDING_AND_COLLABORATION.md`](FUNDING_AND_COLLABORATION.md) for the proposed validation pathway and the forms of support that would be most useful.
+
 ## Future Research
 
 Future work should focus on testable extensions:
@@ -229,6 +235,7 @@ Future work should focus on testable extensions:
 information-asymmetry/
 │── README.md
 │── ABSURDITY_TEST.md
+│── FUNDING_AND_COLLABORATION.md
 │── LICENSE
 │── CITATION.cff
 │── CONTRIBUTING.md
