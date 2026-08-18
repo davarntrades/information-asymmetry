@@ -128,43 +128,88 @@ If this is correct:
 
 Let:
 
-- \(D\) denote a dynamical representation.
-- \(P\) denote a psychological description.
+- \(D\) denote the original dynamical representation.
+- \(P\) denote a psychological or behavioural description produced from \(D\).
 - \(f: D \rightarrow P\) denote the forward mapping.
 - \(g: P \rightarrow \hat{D}\) denote reverse reconstruction.
+- \(\hat{D}\) denote the reconstructed dynamical representation.
 
-The hypothesis predicts:
+The research aim is not merely to state that information is lost, but to quantify how much task-relevant information remains recoverable after compression through \(P\).
+
+## Quantifying Information Asymmetry
+
+For a discrete formulation, the residual uncertainty about the original dynamics after reconstruction can be expressed as:
 
 \[
-I(D; \hat{D}) < I(D; D)
+L_{\text{info}} = H(D \mid \hat{D})
 \]
 
-where \(\hat{D}\) is the recovered dynamical representation.
+Equivalently:
 
-## Information Asymmetry
+\[
+L_{\text{info}} = H(D) - I(D;\hat{D})
+\]
 
-Information asymmetry appears when the forward mapping from dynamics to description preserves enough structure to support prediction, while the reverse mapping from description to dynamics loses information.
+where \(H(D)\) is the entropy of the original dynamical representation and \(I(D;\hat{D})\) is the mutual information between the original and reconstructed dynamics.
 
-| Direction | Question | Expected limitation |
-|---|---|---|
-| \(f: D \rightarrow P\) | Can dynamics predict psychological labels? | Labels may be coarse but predictable. |
-| \(g: P \rightarrow \hat{D}\) | Can labels reconstruct dynamics? | Reconstruction is expected to be partial and underdetermined. |
-| \(D \neq \hat{D}\) | Is information lost? | Multiple dynamical histories may map to similar descriptions. |
+A stronger comparative test introduces a richer structural representation \(S\) and asks whether it preserves more information about the original dynamics than the psychological description \(P\):
 
-The scientific aim is to make this asymmetry testable rather than metaphorical.
+\[
+\Delta I = I(D;S) - I(D;P)
+\]
+
+The hypothesis predicts \(\Delta I > 0\) for tasks in which the richer structural representation preserves control-relevant variables that the psychological description compresses away.
+
+A related conditional-entropy formulation is:
+
+\[
+H(D \mid P) > H(D \mid S)
+\]
+
+The important scientific requirement is that these quantities be estimated on held-out data under controlled representation capacity or bit-rate conditions. Otherwise a richer representation may appear superior simply because it contains more unconstrained information.
+
+### Falsification condition
+
+> **If psychological descriptions reconstruct the task-relevant dynamical variables as well as richer structural representations after controlling for representation capacity, then the proposed information asymmetry is not supported for that task.**
+
+This programme therefore treats information asymmetry as an empirical quantity to be estimated, not as an illustrative metaphor.
 
 ## Experimental Protocol
 
+The forward/reverse mapping tests should be concrete enough that an independent researcher can run them without needing undocumented assumptions.
+
 | Step | Description |
 |---|---|
-| 1 | Construct only the dynamical representation |
-| 2 | Predict psychological descriptions from dynamics |
-| 3 | Discard the original dynamics |
-| 4 | Attempt to reconstruct the dynamics from psychological labels |
-| 5 | Compare original dynamics with recovered dynamics |
-| 6 | Measure information retained and information lost |
+| 1 | Define the dynamical system \(D\), state variables, trajectories, perturbations, and observation window |
+| 2 | Define the psychological or behavioural representation \(P\) and the richer structural comparison representation \(S\) |
+| 3 | Specify the forward mapping \(f: D \rightarrow P\), including model class, training data, train/test split, and random seeds |
+| 4 | Discard or withhold the original dynamics from the reverse mapper |
+| 5 | Specify the reverse mapping \(g: P \rightarrow \hat{D}\) and an equivalent reconstruction path from \(S\) |
+| 6 | Reconstruct held-out dynamical variables, trajectories, or transition structure |
+| 7 | Measure reconstruction error, predictive performance, mutual information or conditional entropy, and intervention-relevant recovery |
+| 8 | Compare against baselines and capacity-matched controls |
+| 9 | Report uncertainty, statistical significance or confidence intervals where appropriate, and all random seeds |
+| 10 | Apply predeclared failure and falsification criteria |
 
-The central test is whether psychological descriptions preserve enough information to reconstruct the original dynamical structure.
+### Minimum reproducibility requirements
+
+Each protocol in `experiments/` should eventually specify:
+
+- the exact dynamical system or dataset;
+- all state variables and observables;
+- how psychological labels are produced;
+- how richer structural representations are constructed;
+- the forward and reverse model classes;
+- train/validation/test separation;
+- representation-capacity or bit-rate controls;
+- baselines and positive controls;
+- reconstruction and information-retention metrics;
+- perturbation and intervention tests where relevant;
+- random seeds and software dependencies;
+- expected output files;
+- predefined success, failure, and falsification conditions.
+
+The standard is simple: **another researcher should be able to clone the repository, follow the protocol, reproduce the forward/reverse mapping test, and know what outcome would count against the hypothesis.**
 
 ## Runtime Governance
 
@@ -209,8 +254,8 @@ This repository is organised as a research programme rather than a static paper 
 
 | Track | Repository Area | Purpose |
 |---|---|---|
-| Formal theory | `mathematics/` | Define representations, mappings, losses, and errors. |
-| Empirical validation | `experiments/` | Provide reusable protocols for testing the hypothesis. |
+| Formal theory | `mathematics/` | Define representations, mappings, losses, information-theoretic estimands, and falsification criteria. |
+| Empirical validation | `experiments/` | Provide reproducible forward/reverse mapping protocols that independent researchers can run. |
 | Engineering implementation | `engineering/` | Document Runtime Governance as an operational structural system. |
 | Future extensions | `future-research/` | Identify domain extensions without overstating current evidence. |
 | Literature | `references/` | Collect references without inventing unsupported citations. |
@@ -221,9 +266,13 @@ The programme is currently seeking research collaborators, institutional partner
 
 Future work should focus on testable extensions:
 
+- reproducible forward/reverse mapping experiments;
+- capacity-matched comparisons between psychological and structural representations;
+- mutual-information and conditional-entropy estimation on held-out data;
 - psychological label prediction from dynamical representations;
 - reverse reconstruction limits;
 - retained and lost information metrics;
+- intervention-sensitive and control-relevant reconstruction tests;
 - biological regulation, adaptation, and recovery;
 - healthcare-relevant modelling only where evidence and appropriate validation exist;
 - autonomous systems, cybersecurity, finance, ecosystems, climate, and infrastructure;
