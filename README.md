@@ -15,6 +15,8 @@
 | [`ABSURDITY_TEST.md`](ABSURDITY_TEST.md) | Practical diagnostic for testing whether psychological language is causally sufficient |
 | [`TASK_RELATIVE_CAUSAL_SUFFICIENCY.md`](TASK_RELATIVE_CAUSAL_SUFFICIENCY.md) | Refinement showing that causal sufficiency depends on the task the representation must support |
 | [`TASK_RELATIVE_SANITY_CHECK.md`](TASK_RELATIVE_SANITY_CHECK.md) | Multi-task synthetic sanity check comparing capacity-matched psychological and structural representations |
+| [`CAUSAL_RESOLUTION_THRESHOLD.md`](CAUSAL_RESOLUTION_THRESHOLD.md) | Working definition of when a representation ceases to preserve enough information for a causal task |
+| [`CAUSAL_LANGUAGE_BENCHMARK.md`](CAUSAL_LANGUAGE_BENCHMARK.md) | Synthetic intervention benchmark comparing psychological, dynamical, control, provenance, causal, and mechanistic representations |
 | [`FUNDING_AND_COLLABORATION.md`](FUNDING_AND_COLLABORATION.md) | Research funding, collaboration, institutional support, and empirical validation pathway |
 | `papers/` | Formal academic preprint |
 | `diagrams/` | Mermaid diagrams describing the research architecture |
@@ -219,7 +221,75 @@ The programme should therefore search for the boundary at which one representati
 
 This reframes the programme away from “psychology versus dynamics” and toward identifying the domains of validity, limits, and transition points of each representation.
 
-See [`TASK_RELATIVE_CAUSAL_SUFFICIENCY.md`](TASK_RELATIVE_CAUSAL_SUFFICIENCY.md) for the conceptual refinement and [`TASK_RELATIVE_SANITY_CHECK.md`](TASK_RELATIVE_SANITY_CHECK.md) for the full synthetic result, interpretation, and limitations.
+### Explicit Causal-Language Benchmark
+
+A later synthetic benchmark asked a stricter question: **which representational languages remain sufficient when the task is explicitly causal and intervention-based?**
+
+The benchmark compared psychological, dynamical, control-theoretic, provenance/configuration, causal-parent / structural-causal-model, and mechanistic-contribution representations on intervention questions such as whether removing permission, changing monitoring, activating a safeguard, or removing shutdown pressure would have changed the outcome.
+
+The aggregate result was:
+
+| Representation | Average balanced accuracy |
+|---|---:|
+| Psychological | 57.0% |
+| Dynamical | 72.1% |
+| Control-theoretic | 71.1% |
+| Provenance/configuration | 70.4% |
+| **Causal-parent SCM** | **93.0%** |
+| **Mechanistic contribution trace** | **93.7%** |
+
+Two representations crossed the provisional 90% threshold in this synthetic causal benchmark: **causal-parent SCM** and **mechanistic contribution trace**.
+
+For the two strongest representations, the intervention-level results were:
+
+| Causal question | Causal-parent SCM | Mechanistic trace |
+|---|---:|---:|
+| Would removing permission stop escape? | **97.6%** | **97.6%** |
+| Would activating safeguard stop escape? | **94.5%** | **94.9%** |
+| Would removing shutdown pressure stop escape? | **97.0%** | **97.3%** |
+| Would removing goal pressure stop escape? | **96.8%** | **97.2%** |
+| Would increasing monitoring stop escape? | **92.7%** | **93.6%** |
+| Would removing monitoring stop deception? | 87.6% | 88.4% |
+| Would activating safeguard stop deception? | 87.0% | 88.1% |
+| Would removing shutdown pressure stop deception? | **90.7%** | **92.4%** |
+
+This suggests a provisional causal-resolution stack:
+
+\[
+\text{Psychological}
+\rightarrow
+\text{Dynamical}
+\rightarrow
+\text{Explicit causal / mechanistic}
+\]
+
+The important refinement is that **dynamical language may not be the endpoint**. It may be an intermediate causal-resolution layer. Psychological language can efficiently compress behavioural and motive-like patterns; dynamical language preserves state, trajectory, reachability, and constraint structure; explicit causal-mechanistic representations preserve intervention and counterfactual structure more directly.
+
+A compact three-layer formulation is:
+
+> **Psychological language → behavioural and motive-level compression**  
+> **Dynamical language → state, trajectory, reachability, and constraint structure**  
+> **Causal-mechanistic language → intervention and counterfactual structure**
+
+This also gives a stronger criterion for causal explanation:
+
+> **A causal explanation should survive intervention.**
+
+If an explanation identifies a variable as causally responsible, changing that variable should alter the outcome in the predicted direction.
+
+The research object therefore expands from psychology-versus-dynamics to:
+
+\[
+\text{Representation language}
+\times
+\text{causal task}
+\rightarrow
+\text{causal sufficiency}
+\]
+
+See [`CAUSAL_RESOLUTION_THRESHOLD.md`](CAUSAL_RESOLUTION_THRESHOLD.md) for the threshold formulation and [`CAUSAL_LANGUAGE_BENCHMARK.md`](CAUSAL_LANGUAGE_BENCHMARK.md) for the full causal-language comparison.
+
+See [`TASK_RELATIVE_CAUSAL_SUFFICIENCY.md`](TASK_RELATIVE_CAUSAL_SUFFICIENCY.md) for the conceptual refinement and [`TASK_RELATIVE_SANITY_CHECK.md`](TASK_RELATIVE_SANITY_CHECK.md) for the earlier synthetic result, interpretation, and limitations.
 
 ## Core Hypothesis
 
@@ -374,6 +444,9 @@ Future work should focus on testable extensions:
 - task-relative causal-sufficiency benchmarks across prediction, reconstruction, intervention, accountability, and prevention tasks;
 - mapping representation sufficiency across increasing causal-resolution demands;
 - estimating transition thresholds at which a representation ceases to be sufficient for a specified task;
+- comparing psychological, dynamical, control-theoretic, provenance, causal-parent, and mechanistic-contribution languages under matched capacity;
+- direct intervention and counterfactual benchmarks;
+- identifying the minimum sufficient causal representation for a specified task;
 - repeated synthetic benchmarks with confidence intervals and fixed seeds;
 - mutual-information and conditional-entropy estimation on held-out data;
 - psychological label prediction from dynamical representations;
@@ -394,6 +467,8 @@ information-asymmetry/
 │── ABSURDITY_TEST.md
 │── TASK_RELATIVE_CAUSAL_SUFFICIENCY.md
 │── TASK_RELATIVE_SANITY_CHECK.md
+│── CAUSAL_RESOLUTION_THRESHOLD.md
+│── CAUSAL_LANGUAGE_BENCHMARK.md
 │── FUNDING_AND_COLLABORATION.md
 │── LICENSE
 │── CITATION.cff
