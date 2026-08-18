@@ -126,6 +126,13 @@ A further refinement is:
 
 > **Causal sufficiency is task-relative.**
 
+The current synthetic results suggest a useful working distinction:
+
+> **Psychological language compresses toward behaviour.**  
+> **Dynamical language preserves more of the mechanism.**
+
+This is not a universal law and it is not yet an empirical finding about real-world AI systems. It is a compact summary of what the present proof-of-concept tests exhibited: psychological-style representations were strong at immediate behavioural prediction, while structural representations preserved more information about underlying state, risk, constraints, and causal configuration.
+
 A representation should not be judged as globally better or worse in isolation. It should be judged by whether it preserves enough information for the causal task being performed.
 
 A psychological description may be sufficient for behavioural prediction while remaining insufficient for state reconstruction, trajectory reconstruction, intervention design, constraint diagnosis, responsibility localization, or recurrence prevention.
