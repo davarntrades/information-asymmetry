@@ -112,6 +112,38 @@ Causal-resolution thresholds
 Runtime causal-analysis overlay
 ```
 
+## Ontology as a tool, not a commitment
+
+This is the principle in its purest form:
+
+> **Ontology is a tool, not a commitment.**
+
+You keep a representation only as long as it delivers the causal performance the task actually requires. When it falls short, you perturb it, expand it, hybridise it, or discard it.
+
+The objective is not to defend a preferred vocabulary or theoretical identity. The objective is to identify the representation that preserves the task-relevant structure needed to stay in causal contact with the system being studied.
+
+A useful operational form is:
+
+\[
+R^*(T)=\arg\max_R\;\mathrm{CausalPerformance}(R,T)
+\]
+
+subject to whatever representation-capacity, latency, interpretability, or deployment constraints the task imposes.
+
+In words:
+
+> **For a given task, retain the representation that delivers the strongest causal performance under the relevant constraints.**
+
+This means:
+
+- psychology can be retained where behavioural compression is sufficient;
+- dynamics can be retained where state, trajectory, reachability and constraints are required;
+- SCM-based representations can be added where intervention and counterfactual structure are required;
+- hybrids can be used where no single representation preserves enough information;
+- any of these should be replaced if a better representation is found under a fair test.
+
+The scientific commitment is therefore not to one ontology. It is to **testing representational sufficiency against the task**.
+
 ## Methodological principle
 
 The broader lesson is now part of the research method:
