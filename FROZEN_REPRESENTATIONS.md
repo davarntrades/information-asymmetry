@@ -112,6 +112,105 @@ This is the same methodological move that produced the current progression in th
 
 The transition was not motivated by loyalty to a preferred ontology. It was motivated by observed performance gaps on causal tasks.
 
+## Local safety and envelope-bound validity
+
+The phrase **“this representation worked before”** is too weak for safety-critical governance.
+
+A representation may have worked for behavioural prediction, state reconstruction, intervention analysis, or some other bounded task without establishing that the governed system was safe.
+
+The stronger scientific target is **local safety**: a claim whose validity is explicitly bounded to a tested operating envelope.
+
+A local-safety statement should have the form:
+
+> **Within this declared operating envelope, under these assumptions, capabilities, constraints, perturbations, and task conditions, the tested safety property held.**
+
+The important distinction is:
+
+```text
+system is safe
+```
+
+is not equivalent to:
+
+```text
+specified safety property held inside tested envelope E
+```
+
+A useful schematic formulation is:
+
+\[
+\operatorname{Safe}(S\mid E,A,C,T)
+\]
+
+where:
+
+- \(E\) is the declared operating envelope;
+- \(A\) is the set of assumptions under which the claim was tested;
+- \(C\) is the relevant capability / constraint configuration;
+- \(T\) is the task, trajectory class, or operational regime being governed.
+
+If deployment moves outside that envelope, the previous safety claim should not be inherited automatically:
+
+\[
+E'\not\subseteq E
+\quad\Rightarrow\quad
+\text{no automatic transfer of the previous safety claim}
+\]
+
+This sharpens the frozen-representation problem. The issue is not only that an institution may keep using an old ontology. It may also continue extrapolating conclusions that were only justified inside an earlier envelope.
+
+The questions therefore become:
+
+- **Worked for which task?**
+- **Under which conditions?**
+- **At what causal resolution?**
+- **Inside which operating envelope?**
+- **Against which perturbations?**
+- **Which safety property was actually established?**
+
+A representation can perform well while still being insufficient for a local-safety claim.
+
+For example:
+
+- a psychological representation may be sufficient for immediate behavioural prediction;
+- a dynamical representation may be sufficient for state, trajectory, reachability, and constraint analysis;
+- a Structural Causal Model may be stronger for intervention and counterfactual questions;
+- a hybrid representation may be required when governance needs both reachability and intervention structure.
+
+None of these facts alone establishes universal safety.
+
+For runtime governance, a more defensible target is something like:
+
+> **For this bounded workflow, with these tools, permissions, policies, trajectory limits, and tested perturbations, forbidden-state reachability was prevented across the declared evaluation envelope.**
+
+The evidence should also state where that conclusion stops being justified.
+
+This produces an additional frozen-representation failure chain:
+
+\[
+\text{Frozen representation}
+\rightarrow
+\text{Changed envelope}
+\rightarrow
+\text{Unnoticed causal insufficiency}
+\rightarrow
+\text{Invalid extrapolation}
+\rightarrow
+\text{False safety confidence}
+\]
+
+The methodological implication is stronger than “update when the environment changes.” It is:
+
+> **Commit to causal performance within the task and envelope actually being governed — not to the representation that happened to perform well under yesterday’s conditions.**
+
+A representation should therefore be evaluated as a function of the task, operating envelope, and required reliability threshold:
+
+\[
+R^*=f(T,E,\tau)
+\]
+
+where \(\tau\) denotes the required causal-performance or safety threshold.
+
 ## Institutional ontology lock-in
 
 The strongest version of the concern is:
@@ -163,6 +262,8 @@ A research programme on frozen representations should move beyond anecdote. Cand
 5. Compare it with expanded or hybrid alternatives under controlled representation capacity where possible.
 6. Measure whether institutional outputs changed only after the representation changed.
 7. Distinguish representational failure from implementation failure, incentive failure, data scarcity, or ordinary organisational delay.
+8. Declare the operating envelope within which any local-safety claim is supported.
+9. Test whether performance degrades or safety claims fail when conditions move outside that envelope.
 
 Possible domains include AI governance, cybersecurity, medicine, finance, infrastructure, and other areas where the system under study changes faster than institutional categories.
 
@@ -176,7 +277,15 @@ The institutional hypothesis should be weakened or rejected where evidence shows
 - newer or hybrid representations do not improve task-relative causal performance;
 - the apparent ontology problem disappears after controlling for implementation quality.
 
-The aim is not to assume ontology failure everywhere. It is to make ontology itself an object of empirical scrutiny.
+Local-safety claims should also be weakened or withdrawn when:
+
+- the deployment leaves the tested envelope;
+- untested capabilities or permissions are introduced;
+- the relevant perturbation class changes;
+- assumptions required by the safety argument no longer hold;
+- the representation no longer preserves the variables needed to evaluate the safety property.
+
+The aim is not to assume ontology failure everywhere. It is to make ontology itself an object of empirical scrutiny and to keep safety claims bounded by the evidence that actually supports them.
 
 ## Relation to Information Asymmetry
 
@@ -188,7 +297,11 @@ The institutional extension asks:
 
 > **What happens when a representation ceases to be sufficient, but the institution using it does not update?**
 
-That question turns representational sufficiency into an organisational and governance problem as well as a scientific one.
+The local-safety extension asks:
+
+> **What happens when the task or operating envelope changes, but the representation and safety claim are carried forward unchanged?**
+
+Those questions turn representational sufficiency into an organisational and governance problem as well as a scientific one.
 
 ## Methodological principle
 
@@ -198,4 +311,8 @@ The purest formulation remains:
 
 The point is not permanent instability. The point is conditional commitment:
 
-**commit to causal performance, not to the representation that happened to deliver it last time.**
+> **Commit to causal performance, not to the representation that happened to deliver it last time.**
+
+For safety-critical governance, that commitment is local and envelope-bound:
+
+> **Commit to causal performance within the task and envelope actually being governed — not to the representation that happened to perform well under yesterday’s conditions.**
