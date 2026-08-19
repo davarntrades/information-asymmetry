@@ -22,4 +22,12 @@ A concise formulation suitable for a future paper revision is:
 
 > **A further research direction concerns representational freezing: the possibility that institutions continue to apply a historically useful ontology after the task or system has changed enough that the representation is no longer causally sufficient. This raises questions about how scientific and governance institutions detect and respond to ontology failure.**
 
+The methodological principle to carry into the next paper revision is:
+
+> **Ontology is a tool, not a commitment. You keep a representation only as long as it delivers the causal performance the task actually requires. When it falls short, you perturb it, expand it, hybridise it, or discard it.**
+
+And the compressed institutional rule is:
+
+> **Commit to causal performance, not to the representation that happened to deliver it last time.**
+
 This is intentionally **not yet folded into the Version 2.2 scientific claim**. It should remain a separate institutional hypothesis until it has its own empirical support.
